@@ -17,16 +17,15 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 &
 # ── Working Directory ──────────────────────────────────────────────────────────
 WORKDIR /app
 
-# ── Install PyTorch with CUDA 12.4 first (largest dependency) ─────────────────
-# Done separately for better Docker layer caching
-RUN pip install --no-cache-dir torch==2.6.0 \
-    --index-url https://download.pytorch.org/whl/cu124
+# ── Install PyTorch with CUDA 12.4 ────────────────────────────────────────────
+# Separate layer for caching. Uses --no-cache-dir to avoid hash issues.
+RUN pip install --no-cache-dir --timeout 120 \
+    torch==2.6.0+cu124 \
+    --extra-index-url https://download.pytorch.org/whl/cu124
 
 # ── Install Python Dependencies ────────────────────────────────────────────────
-# Copy requirements first for Docker layer caching
-# If only source code changes, this layer is reused (saves ~5 mins)
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --timeout 120 -r requirements.txt
 
 # ── Download NLTK Data ─────────────────────────────────────────────────────────
 RUN python -c "import nltk; nltk.download('punkt', quiet=True); nltk.download('punkt_tab', quiet=True)"
