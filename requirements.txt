@@ -1,26 +1,25 @@
 # ── API Framework ──────────────────────────────────────────────────────────────
-fastapi==0.111.0
-uvicorn[standard]==0.30.1
-pydantic==2.7.1
+fastapi>=0.111.0,<0.112.0
+uvicorn[standard]>=0.30.0,<0.32.0
+pydantic>=2.7.0,<2.8.0
 
 # ── ML / Embeddings ────────────────────────────────────────────────────────────
-# PyTorch: install with CUDA 12.4 support (matches CUDA 12.7 driver)
-# pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
-torch==2.6.0
-sentence-transformers==3.0.0
-transformers==4.41.0
+# NOTE: torch is installed separately in Dockerfile with CUDA 12.4 support
+# torch==2.6.0+cu124  ← installed in Dockerfile before this file
+sentence-transformers>=3.0.0,<3.1.0
+transformers>=4.41.0,<4.42.0
 
 # ── Vector Store ───────────────────────────────────────────────────────────────
-chromadb==0.5.0
+chromadb>=0.5.0,<0.6.0
 
 # ── Data Processing ────────────────────────────────────────────────────────────
-nltk==3.8.1
-tqdm==4.66.4
-numpy==1.26.4
-datasets==2.19.1
+nltk>=3.8.0,<3.9.0
+tqdm>=4.66.0,<4.67.0
+numpy>=1.26.0,<2.0.0
+datasets>=2.19.0,<2.20.0
 
 # ── HTTP Client (evaluation script) ───────────────────────────────────────────
-httpx==0.27.0
+httpx>=0.27.0,<0.28.0
 
 # ── Utilities ──────────────────────────────────────────────────────────────────
-python-dotenv==1.0.1
+python-dotenv>=1.0.0,<2.0.0
