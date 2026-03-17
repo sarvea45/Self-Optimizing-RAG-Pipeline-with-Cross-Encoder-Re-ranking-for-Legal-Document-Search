@@ -14,10 +14,10 @@ GPU: Automatically uses RTX 3050 if available via PyTorch CUDA detection.
 
 import os
 import torch
-from sentence_transformers import SentenceTransformer
+from typing import Optional, List
 
 # ── Singleton model instance (loaded once, reused across requests) ─────────────
-_biencoder_model: SentenceTransformer | None = None
+_biencoder_model: Optional[SentenceTransformer] = None
 
 
 def _get_device() -> str:
@@ -40,7 +40,7 @@ def get_embedder() -> SentenceTransformer:
     return _biencoder_model
 
 
-def embed_texts(texts: list[str], batch_size: int = 64) -> list[list[float]]:
+def embed_texts(texts: List[str], batch_size: int = 64) -> List[List[float]]:
     """
     Embed a list of text strings into dense vectors.
 
@@ -62,6 +62,6 @@ def embed_texts(texts: list[str], batch_size: int = 64) -> list[list[float]]:
     return embeddings.tolist()
 
 
-def embed_query(query: str) -> list[float]:
+def embed_query(query: str) -> List[float]:
     """Embed a single query string. Convenience wrapper around embed_texts."""
     return embed_texts([query])[0]

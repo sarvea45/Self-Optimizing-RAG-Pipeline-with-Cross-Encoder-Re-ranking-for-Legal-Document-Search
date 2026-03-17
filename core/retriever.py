@@ -12,13 +12,13 @@ ChromaDB Choice:
 
 import os
 import chromadb
-from chromadb.config import Settings
+from typing import Optional, List
 from core.embedder import embed_query
 
 COLLECTION_NAME = "legal_chunks"
 
 # ── Singleton ChromaDB client + collection ────────────────────────────────────
-_client: chromadb.PersistentClient | None = None
+_client: Optional[chromadb.PersistentClient] = None
 _collection = None
 
 
@@ -38,7 +38,7 @@ def get_collection():
     return _collection
 
 
-def retrieve(query: str, top_k: int) -> list[dict]:
+def retrieve(query: str, top_k: int) -> List[dict]:
     """
     Retrieve top_k chunks most similar to query using cosine vector search.
 

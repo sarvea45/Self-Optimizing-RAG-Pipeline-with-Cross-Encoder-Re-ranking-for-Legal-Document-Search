@@ -19,10 +19,11 @@ How It Works:
 
 import os
 import torch
+from typing import Optional, List
 from sentence_transformers import CrossEncoder
 
 # ── Singleton cross-encoder model ─────────────────────────────────────────────
-_crossencoder_model: CrossEncoder | None = None
+_crossencoder_model: Optional[CrossEncoder] = None
 
 
 def get_reranker() -> CrossEncoder:
@@ -43,7 +44,7 @@ def get_reranker() -> CrossEncoder:
     return _crossencoder_model
 
 
-def rerank(query: str, candidates: list[dict], top_k: int) -> list[dict]:
+def rerank(query: str, candidates: List[dict], top_k: int) -> List[dict]:
     """
     Re-rank candidate chunks using the cross-encoder for precision scoring.
 
