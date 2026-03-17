@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: legal-rag-api
+    ports:
+      - "8000:8000"
+
+    # ── GPU Support (RTX 3050) ───────────────────────────────────────────────
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    # ── Persistent Volumes ───────────────────────────────────────────────────
+    volumes:
+      - ./data:/app/data           # ChromaDB index + raw + processed chunks
+      - ./results:/app/results     # Evaluation metrics output
+
+    # ── Environment Variables ────────────────────────────────────────────────
+    env_file:
+      - .env
+
+    # ── Health Check ─────────────────────────────────────────────────────────
+    # Queries /health every 30s. Models take ~60s to load on first start.
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+    # ── Restart Policy ───────────────────────────────────────────────────────
+    restart: unless-stopped

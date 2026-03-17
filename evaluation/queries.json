@@ -1,0 +1,217 @@
+[
+  {
+    "query_id": "q001",
+    "query_text": "What are the termination clauses and notice periods in software license agreements?",
+    "relevant_docs": [
+      "synthetic_0000_Software_License_Agreement",
+      "synthetic_0005_Software_License_Agreement",
+      "synthetic_0010_Software_License_Agreement"
+    ]
+  },
+  {
+    "query_id": "q002",
+    "query_text": "What confidential information obligations does the receiving party have in an NDA?",
+    "relevant_docs": [
+      "synthetic_0001_Non-Disclosure_Agreement",
+      "synthetic_0006_Non-Disclosure_Agreement",
+      "synthetic_0011_Non-Disclosure_Agreement"
+    ]
+  },
+  {
+    "query_id": "q003",
+    "query_text": "How is intellectual property ownership handled in professional services agreements?",
+    "relevant_docs": [
+      "synthetic_0002_Service_Agreement",
+      "synthetic_0007_Service_Agreement",
+      "synthetic_0012_Service_Agreement"
+    ]
+  },
+  {
+    "query_id": "q004",
+    "query_text": "What are the non-compete restrictions for employees after termination?",
+    "relevant_docs": [
+      "synthetic_0003_Employment_Agreement",
+      "synthetic_0008_Employment_Agreement",
+      "synthetic_0013_Employment_Agreement"
+    ]
+  },
+  {
+    "query_id": "q005",
+    "query_text": "What are the tenant obligations for insurance in a commercial lease?",
+    "relevant_docs": [
+      "synthetic_0004_Lease_Agreement",
+      "synthetic_0009_Lease_Agreement",
+      "synthetic_0014_Lease_Agreement"
+    ]
+  },
+  {
+    "query_id": "q006",
+    "query_text": "What restrictions does a licensee have on sublicensing or reselling software?",
+    "relevant_docs": [
+      "synthetic_0000_Software_License_Agreement",
+      "synthetic_0005_Software_License_Agreement"
+    ]
+  },
+  {
+    "query_id": "q007",
+    "query_text": "Under what conditions can confidential information be disclosed without consent?",
+    "relevant_docs": [
+      "synthetic_0001_Non-Disclosure_Agreement",
+      "synthetic_0006_Non-Disclosure_Agreement"
+    ]
+  },
+  {
+    "query_id": "q008",
+    "query_text": "What are the payment terms and late fees in service agreements?",
+    "relevant_docs": [
+      "synthetic_0002_Service_Agreement",
+      "synthetic_0007_Service_Agreement"
+    ]
+  },
+  {
+    "query_id": "q009",
+    "query_text": "What employee benefits and compensation structure is defined in employment contracts?",
+    "relevant_docs": [
+      "synthetic_0003_Employment_Agreement",
+      "synthetic_0008_Employment_Agreement"
+    ]
+  },
+  {
+    "query_id": "q010",
+    "query_text": "What are the conditions for security deposit return in lease agreements?",
+    "relevant_docs": [
+      "synthetic_0004_Lease_Agreement",
+      "synthetic_0009_Lease_Agreement"
+    ]
+  },
+  {
+    "query_id": "q011",
+    "query_text": "How is limitation of liability defined for software and service providers?",
+    "relevant_docs": [
+      "synthetic_0000_Software_License_Agreement",
+      "synthetic_0002_Service_Agreement",
+      "synthetic_0007_Service_Agreement"
+    ]
+  },
+  {
+    "query_id": "q012",
+    "query_text": "What governing law and jurisdiction applies to technology contracts?",
+    "relevant_docs": [
+      "synthetic_0000_Software_License_Agreement",
+      "synthetic_0001_Non-Disclosure_Agreement"
+    ]
+  },
+  {
+    "query_id": "q013",
+    "query_text": "What are the indemnification obligations in professional services contracts?",
+    "relevant_docs": [
+      "synthetic_0002_Service_Agreement",
+      "synthetic_0007_Service_Agreement",
+      "synthetic_0012_Service_Agreement"
+    ]
+  },
+  {
+    "query_id": "q014",
+    "query_text": "What inventions and discoveries must employees assign to their employer?",
+    "relevant_docs": [
+      "synthetic_0003_Employment_Agreement",
+      "synthetic_0008_Employment_Agreement",
+      "synthetic_0013_Employment_Agreement"
+    ]
+  },
+  {
+    "query_id": "q015",
+    "query_text": "What constitutes default by a tenant and what are landlord remedies?",
+    "relevant_docs": [
+      "synthetic_0004_Lease_Agreement",
+      "synthetic_0009_Lease_Agreement",
+      "synthetic_0014_Lease_Agreement"
+    ]
+  },
+  {
+    "query_id": "q016",
+    "query_text": "How long does the confidentiality obligation last after agreement termination?",
+    "relevant_docs": [
+      "synthetic_0001_Non-Disclosure_Agreement",
+      "synthetic_0006_Non-Disclosure_Agreement",
+      "synthetic_0011_Non-Disclosure_Agreement"
+    ]
+  },
+  {
+    "query_id": "q017",
+    "query_text": "What warranties does a service provider give about the quality of work?",
+    "relevant_docs": [
+      "synthetic_0002_Service_Agreement",
+      "synthetic_0007_Service_Agreement"
+    ]
+  },
+  {
+    "query_id": "q018",
+    "query_text": "What are the at-will employment provisions and notice requirements for termination?",
+    "relevant_docs": [
+      "synthetic_0003_Employment_Agreement",
+      "synthetic_0008_Employment_Agreement"
+    ]
+  },
+  {
+    "query_id": "q019",
+    "query_text": "What are the permitted uses of leased commercial premises?",
+    "relevant_docs": [
+      "synthetic_0004_Lease_Agreement",
+      "synthetic_0009_Lease_Agreement"
+    ]
+  },
+  {
+    "query_id": "q020",
+    "query_text": "How are disputes resolved in professional and commercial contracts?",
+    "relevant_docs": [
+      "synthetic_0002_Service_Agreement",
+      "synthetic_0007_Service_Agreement",
+      "synthetic_0004_Lease_Agreement"
+    ]
+  },
+  {
+    "query_id": "q021",
+    "query_text": "What happens to software licenses when a contract is terminated?",
+    "relevant_docs": [
+      "synthetic_0000_Software_License_Agreement",
+      "synthetic_0005_Software_License_Agreement",
+      "synthetic_0010_Software_License_Agreement"
+    ]
+  },
+  {
+    "query_id": "q022",
+    "query_text": "What remedies are available for breach of confidentiality agreement?",
+    "relevant_docs": [
+      "synthetic_0001_Non-Disclosure_Agreement",
+      "synthetic_0006_Non-Disclosure_Agreement"
+    ]
+  },
+  {
+    "query_id": "q023",
+    "query_text": "What are the maintenance and repair responsibilities in commercial leases?",
+    "relevant_docs": [
+      "synthetic_0004_Lease_Agreement",
+      "synthetic_0009_Lease_Agreement",
+      "synthetic_0014_Lease_Agreement"
+    ]
+  },
+  {
+    "query_id": "q024",
+    "query_text": "How is proprietary information and trade secrets protection defined in employment?",
+    "relevant_docs": [
+      "synthetic_0003_Employment_Agreement",
+      "synthetic_0008_Employment_Agreement",
+      "synthetic_0001_Non-Disclosure_Agreement"
+    ]
+  },
+  {
+    "query_id": "q025",
+    "query_text": "What are the grant of license terms including exclusivity and transferability?",
+    "relevant_docs": [
+      "synthetic_0000_Software_License_Agreement",
+      "synthetic_0005_Software_License_Agreement",
+      "synthetic_0010_Software_License_Agreement"
+    ]
+  }
+]
