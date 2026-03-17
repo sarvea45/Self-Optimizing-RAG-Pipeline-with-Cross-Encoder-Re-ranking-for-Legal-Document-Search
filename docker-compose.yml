@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   api:
     build:
@@ -20,15 +18,14 @@ services:
 
     # ── Persistent Volumes ───────────────────────────────────────────────────
     volumes:
-      - ./data:/app/data           # ChromaDB index + raw + processed chunks
-      - ./results:/app/results     # Evaluation metrics output
+      - ./data:/app/data
+      - ./results:/app/results
 
     # ── Environment Variables ────────────────────────────────────────────────
     env_file:
       - .env
 
     # ── Health Check ─────────────────────────────────────────────────────────
-    # Queries /health every 30s. Models take ~60s to load on first start.
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
