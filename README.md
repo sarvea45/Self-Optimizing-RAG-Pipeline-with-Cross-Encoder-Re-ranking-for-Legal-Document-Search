@@ -2,11 +2,17 @@
 
 > A production-grade two-stage Retrieval-Augmented Generation (RAG) pipeline for legal document search, combining bi-encoder vector retrieval with cross-encoder re-ranking for high-precision results.
 
+[![Python](https://img.shields.io/badge/Python-3.11-blue)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.111-green)](https://fastapi.tiangolo.com)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://docker.com)
+[![CUDA](https://img.shields.io/badge/CUDA-12.4-green)](https://developer.nvidia.com/cuda-toolkit)
+
 ---
 
 ## Table of Contents
 
 - [Overview](#overview)
+- [Evaluation Results](#evaluation-results)
 - [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
 - [Quick Start](#quick-start)
@@ -16,17 +22,31 @@
 - [Evaluation](#evaluation)
 - [Project Structure](#project-structure)
 - [Environment Variables](#environment-variables)
+- [Troubleshooting](#troubleshooting)
 
 ---
 
 ## Overview
 
-This system addresses a critical limitation of naive RAG pipelines: **similarity is not the same as relevance**. A simple vector search might retrieve documents that share vocabulary with a query but discuss it in a completely different context.
+This system addresses a critical limitation of naive RAG pipelines: **similarity is not the same as relevance**. A simple vector search retrieves documents that share vocabulary with a query but may discuss them in a completely irrelevant context.
 
 Our solution: a **two-stage retrieval pipeline**:
 
-1. **Stage 1 — Bi-Encoder Retrieval** (Speed): Rapidly retrieves a broad candidate set of potentially relevant legal contract chunks using cosine similarity in ChromaDB.
-2. **Stage 2 — Cross-Encoder Re-ranking** (Precision): A more powerful cross-encoder model re-scores each (query, candidate) pair jointly, providing deep semantic relevance scoring that dramatically improves result precision.
+1. **Stage 1 — Bi-Encoder Retrieval** (Speed): Rapidly retrieves a broad candidate set using cosine similarity in ChromaDB.
+2. **Stage 2 — Cross-Encoder Re-ranking** (Precision): A cross-encoder model re-scores each (query, candidate) pair jointly, providing deep semantic relevance scoring.
+
+---
+
+## Evaluation Results
+
+Evaluated on 25 hand-crafted legal queries against 200 real CUAD contracts:
+
+| Metric | Baseline (Vector Search) | Re-ranked (Two-Stage) | Improvement |
+|---|---|---|---|
+| **MRR@5** | 0.4440 | 0.5567 | **+25.4%** ✅ |
+| **NDCG@10** | 0.7514 | 0.9812 | **+30.6%** ✅ |
+
+The two-stage pipeline significantly outperforms simple vector search, proving that cross-encoder re-ranking adds real precision value for legal document retrieval.
 
 ---
 
@@ -37,7 +57,7 @@ User Query
     │
     ▼
 ┌─────────────────────────────────────────────┐
-│  FastAPI Service (port 8000)                │
+│  FastAPI Service (port 8001)                │
 │                                             │
 │  GET /api/v1/retrieve/baseline              │
 │  ┌─────────────────────────────────────┐   │
@@ -46,7 +66,7 @@ User Query
 │  │ → Return top-k chunks               │   │
 │  └─────────────────────────────────────┘   │
 │                                             │
-│  GET /api/v1/retrieve/reranked             │
+│  GET /api/v1/retrieve/reranked              │
 │  ┌─────────────────────────────────────┐   │
 │  │ Stage 1: Retrieve k×10 candidates   │   │
 │  │ Stage 2: Cross-Encoder re-rank      │   │
@@ -68,8 +88,8 @@ ChromaDB Vector Index
 | API Framework | FastAPI | Async, auto-docs, Pydantic validation |
 | Vector Database | ChromaDB | Persistent, metadata-native, no separate server |
 | Bi-Encoder | all-MiniLM-L6-v2 | Top MTEB performance for its size class |
-| Cross-Encoder | ms-marco-MiniLM-L-6-v2 | MS MARCO trained, fast, accurate |
-| ML Backend | PyTorch + CUDA 12.4 | GPU acceleration (RTX 3050) |
+| Cross-Encoder | ms-marco-MiniLM-L-6-v2 | MS MARCO trained, fast, accurate re-ranking |
+| ML Backend | PyTorch + CUDA 12.4 | GPU acceleration (RTX 3050 tested) |
 | Dataset | CUAD (Atticus Project) | 500+ real legal contracts |
 | Containerization | Docker + Compose | Reproducible, one-command startup |
 
@@ -79,8 +99,8 @@ ChromaDB Vector Index
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
-cd legal-rag-pipeline
+git clone https://github.com/sarvea45/Self-Optimizing-RAG-Pipeline-with-Cross-Encoder-Re-ranking-for-Legal-Document-Search.git
+cd Self-Optimizing-RAG-Pipeline-with-Cross-Encoder-Re-ranking-for-Legal-Document-Search
 
 # 2. Set up environment variables
 cp .env.example .env
@@ -95,12 +115,12 @@ docker-compose exec api python scripts/ingest.py
 docker-compose exec api python scripts/embed.py
 
 # 6. Test the API
-curl "http://localhost:8000/health"
-curl "http://localhost:8000/api/v1/retrieve/baseline?query=termination+clause&k=5"
-curl "http://localhost:8000/api/v1/retrieve/reranked?query=termination+clause&k=5"
+curl "http://localhost:8001/health"
+curl "http://localhost:8001/api/v1/retrieve/baseline?query=termination+clause&k=5"
+curl "http://localhost:8001/api/v1/retrieve/reranked?query=termination+clause&k=5"
 
-# 7. Run evaluation
-docker-compose exec api python scripts/evaluate.py
+# 7. Run evaluation (from local machine)
+python scripts/evaluate.py --api-url http://localhost:8001
 ```
 
 ---
@@ -110,18 +130,17 @@ docker-compose exec api python scripts/evaluate.py
 ### Prerequisites
 
 - Docker Desktop (v24+) with WSL2 backend (Windows) or Docker Engine (Linux/Mac)
-- NVIDIA GPU with CUDA 12.x driver (optional but recommended)
+- NVIDIA GPU with CUDA 12.x driver (optional but recommended for speed)
 - 5GB free disk space
+- Python 3.11 (for running evaluate.py locally)
 
 ### Step 1: Clone and Configure
 
 ```bash
-git clone <your-repo-url>
-cd legal-rag-pipeline
+git clone https://github.com/sarvea45/Self-Optimizing-RAG-Pipeline-with-Cross-Encoder-Re-ranking-for-Legal-Document-Search.git
+cd Self-Optimizing-RAG-Pipeline-with-Cross-Encoder-Re-ranking-for-Legal-Document-Search
 cp .env.example .env
 ```
-
-Edit `.env` if you want to change any defaults (model names, ports, etc.).
 
 ### Step 2: Build and Start
 
@@ -130,8 +149,8 @@ docker-compose up --build -d
 ```
 
 This will:
-- Build the Docker image (installs PyTorch + all dependencies, ~5-10 mins first time)
-- Start the FastAPI server on port 8000
+- Build the Docker image with CUDA 12.4 support (~10-15 mins first time)
+- Start the FastAPI server on port **8001**
 - Run health checks every 30 seconds
 
 Check the service is healthy:
@@ -147,11 +166,13 @@ docker-compose ps
 docker-compose exec api python scripts/ingest.py
 ```
 
-This downloads the CUAD dataset from Hugging Face and produces `data/processed/chunks.jsonl`.
+Downloads 200 CUAD contracts from Hugging Face and produces `data/processed/chunks.jsonl`.
+
+> **Note**: CUAD-QA dataset repeats contract text for each question. Our script correctly takes the text **once per contract** to avoid duplication.
 
 Options:
 ```bash
-# Process fewer documents (faster for testing)
+# Process specific number of documents
 docker-compose exec api python scripts/ingest.py --max-docs 50
 
 # Custom chunk size
@@ -164,12 +185,12 @@ docker-compose exec api python scripts/ingest.py --chunk-size 512 --overlap 100
 docker-compose exec api python scripts/embed.py
 ```
 
-This embeds all chunks and stores them in ChromaDB. GPU-accelerated if available.
+Embeds chunks and stores in ChromaDB. GPU-accelerated if available (~3 mins on RTX 3050).
 
 Options:
 ```bash
-# Larger batches for more GPU memory
-docker-compose exec api python scripts/embed.py --batch-size 128
+# Limit chunks to embed
+docker-compose exec api python scripts/embed.py --max-chunks 10000
 
 # Reset and rebuild from scratch
 docker-compose exec api python scripts/embed.py --reset
@@ -182,8 +203,10 @@ docker-compose exec api python scripts/embed.py --reset
 ### Without Docker (Local Development)
 
 ```bash
-# Install dependencies
+# Install PyTorch with CUDA
 pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+
+# Install dependencies
 pip install -r requirements.txt
 
 # Copy env
@@ -195,8 +218,8 @@ python scripts/ingest.py
 # Build index
 python scripts/embed.py
 
-# Start API
-uvicorn main:app --reload --port 8000
+# Start API (port 8001)
+uvicorn main:app --reload --port 8001
 ```
 
 ---
@@ -228,7 +251,7 @@ Parameters:
 
 Example:
 ```bash
-curl "http://localhost:8000/api/v1/retrieve/baseline?query=what+are+the+termination+notice+requirements&k=5"
+curl "http://localhost:8001/api/v1/retrieve/baseline?query=termination+clause&k=5"
 ```
 
 Response:
@@ -236,8 +259,8 @@ Response:
 {
   "results": [
     {
-      "doc_id": "cuad_0042_Master_Service_Agreement",
-      "chunk_id": "cuad_0042_Master_Service_Agreement-7",
+      "doc_id": "cuad_0045_WPPPLC_04_30_2020-EX-4_28-SERVICE_AGREEMENT",
+      "chunk_id": "cuad_0045_WPPPLC_04_30_2020-EX-4_28-SERVICE_AGREEMENT-67",
       "text": "Either party may terminate this Agreement upon thirty (30) days written notice...",
       "score": 0.847
     }
@@ -257,7 +280,7 @@ Same parameters as baseline. Internally retrieves `k × 10` candidates, then re-
 
 Example:
 ```bash
-curl "http://localhost:8000/api/v1/retrieve/reranked?query=what+are+the+termination+notice+requirements&k=5"
+curl "http://localhost:8001/api/v1/retrieve/reranked?query=termination+clause&k=5"
 ```
 
 Response schema identical to baseline, but scores reflect cross-encoder relevance (not cosine similarity).
@@ -266,7 +289,7 @@ Response schema identical to baseline, but scores reflect cross-encoder relevanc
 
 ### Interactive Docs
 
-Visit `http://localhost:8000/docs` for the full Swagger UI.
+Visit `http://localhost:8001/docs` for the full Swagger UI.
 
 ---
 
@@ -275,32 +298,30 @@ Visit `http://localhost:8000/docs` for the full Swagger UI.
 ### Run Evaluation Script
 
 ```bash
-docker-compose exec api python scripts/evaluate.py
+# Run from local machine (NOT inside container)
+python scripts/evaluate.py --api-url http://localhost:8001
 ```
 
-This evaluates both pipelines against 25 hand-crafted legal queries and saves results to `results/evaluation_metrics.json`.
+Evaluates both pipelines against 25 hand-crafted legal queries and saves results to `results/evaluation_metrics.json`.
 
 Options:
 ```bash
-# Custom API URL
-python scripts/evaluate.py --api-url http://localhost:8000
-
 # Custom cutoffs
-python scripts/evaluate.py --k-mrr 5 --k-ndcg 10
+python scripts/evaluate.py --api-url http://localhost:8001 --k-mrr 5 --k-ndcg 10
 ```
 
-### Output Format
+### Actual Results
 
 `results/evaluation_metrics.json`:
 ```json
 {
   "baseline": {
-    "mrr_at_5": 0.4230,
-    "ndcg_at_10": 0.3850
+    "mrr_at_5": 0.444,
+    "ndcg_at_10": 0.7514
   },
   "reranked": {
-    "mrr_at_5": 0.7140,
-    "ndcg_at_10": 0.6520
+    "mrr_at_5": 0.5567,
+    "ndcg_at_10": 0.9812
   }
 }
 ```
@@ -319,7 +340,7 @@ legal-rag-pipeline/
 ├── main.py                      # FastAPI app entrypoint
 ├── requirements.txt             # Python dependencies
 ├── Dockerfile                   # Container build (CUDA 12.4)
-├── docker-compose.yml           # Service orchestration + GPU
+├── docker-compose.yml           # Service orchestration + GPU support
 ├── .env.example                 # Environment variable documentation
 ├── README.md                    # This file
 │
@@ -342,16 +363,16 @@ legal-rag-pipeline/
 │   ├── raw/                     # Raw downloaded documents
 │   ├── processed/
 │   │   └── chunks.jsonl         # Chunked text output
-│   └── chroma_db/               # Persisted vector index
+│   └── chroma_db/               # Persisted ChromaDB vector index
 │
 ├── evaluation/
-│   └── queries.json             # 25 legal queries + ground truth
+│   └── queries.json             # 25 legal queries + real CUAD ground truth
 │
 ├── results/
 │   └── evaluation_metrics.json  # Final MRR@5 & NDCG@10 scores
 │
 └── docs/
-    └── technical_analysis.md    # Chunking, models, failure analysis
+    └── technical_analysis.md    # Chunking strategy, model selection, failure analysis
 ```
 
 ---
@@ -366,9 +387,9 @@ Copy `.env.example` to `.env` and adjust as needed:
 | `CROSSENCODER_MODEL` | `cross-encoder/ms-marco-MiniLM-L-6-v2` | HuggingFace cross-encoder model |
 | `CHROMA_PERSIST_DIR` | `./data/chroma_db` | ChromaDB persistence directory |
 | `API_HOST` | `0.0.0.0` | API bind host |
-| `API_PORT` | `8000` | API bind port |
+| `API_PORT` | `8001` | API bind port |
 | `DEFAULT_K` | `10` | Default number of results |
-| `CANDIDATE_MULTIPLIER` | `10` | Re-ranking candidate pool size multiplier |
+| `CANDIDATE_MULTIPLIER` | `10` | Re-ranking candidate pool multiplier |
 | `CHUNKS_PATH` | `./data/processed/chunks.jsonl` | Path to chunked data |
 | `FORCE_CPU` | `0` | Set to `1` to disable GPU |
 
@@ -378,9 +399,9 @@ Copy `.env.example` to `.env` and adjust as needed:
 
 **API not healthy after `docker-compose up`:**
 ```bash
-docker-compose logs api   # Check for errors
+docker-compose logs api
 ```
-Models take ~60 seconds to load on first start. The healthcheck allows for this.
+Models take ~60 seconds to load on first start.
 
 **"Vector index is empty" error:**
 ```bash
@@ -388,11 +409,23 @@ docker-compose exec api python scripts/ingest.py
 docker-compose exec api python scripts/embed.py
 ```
 
+**Evaluation script shows no output on Windows PowerShell:**
+```cmd
+# Use Command Prompt (CMD) instead of PowerShell
+python scripts/evaluate.py --api-url http://localhost:8001
+```
+
 **CUAD download fails:**
-The ingest script will automatically fall back to synthetic legal documents for demonstration. Real evaluation requires the CUAD dataset.
+The ingest script automatically falls back to synthetic legal documents for demonstration.
 
 **GPU not detected in container:**
-Ensure NVIDIA Container Toolkit is installed and Docker Desktop has GPU support enabled.
 ```bash
 docker run --rm --gpus all nvidia/cuda:12.4.0-base-ubuntu22.04 nvidia-smi
+```
+
+**Port conflict on 8001:**
+```bash
+# Find and kill the process using the port
+netstat -ano | findstr :8001
+taskkill /PID <PID> /F
 ```
