@@ -18,6 +18,12 @@ Usage:
   python scripts/evaluate.py --k-mrr 5 --k-ndcg 10
 """
 
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
+
 import argparse
 import json
 import math
