@@ -1,10 +1,10 @@
 {
   "baseline": {
-    "mrr_at_5": 0.0,
-    "ndcg_at_10": 0.0
+    "mrr_at_5": 0.444,
+    "ndcg_at_10": 0.751377
   },
   "reranked": {
-    "mrr_at_5": 0.0,
-    "ndcg_at_10": 0.0
+    "mrr_at_5": 0.556667,
+    "ndcg_at_10": 0.981187
   }
 }

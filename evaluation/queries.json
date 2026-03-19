@@ -1,217 +1,230 @@
 [
   {
     "query_id": "q001",
-    "query_text": "What are the termination clauses and notice periods in software license agreements?",
+    "query_text": "What are the termination notice periods and conditions in service agreements?",
     "relevant_docs": [
-      "synthetic_0000_Software_License_Agreement",
-      "synthetic_0005_Software_License_Agreement",
-      "synthetic_0010_Software_License_Agreement"
+      "cuad_0019_OPERALTD_04_30_2020-EX-4_14-SERVICE_AGREEMENT",
+      "cuad_0045_WPPPLC_04_30_2020-EX-4_28-SERVICE_AGREEMENT",
+      "cuad_0063_ABILITYINC_06_15_2020-EX-4_25-SERVICES_AGREEMENT",
+      "cuad_0066_BICYCLETHERAPEUTICSPLC_03_10_2020-EX-10_11-SERVICE"
     ]
   },
   {
     "query_id": "q002",
-    "query_text": "What confidential information obligations does the receiving party have in an NDA?",
+    "query_text": "What are the intellectual property ownership and assignment clauses?",
     "relevant_docs": [
-      "synthetic_0001_Non-Disclosure_Agreement",
-      "synthetic_0006_Non-Disclosure_Agreement",
-      "synthetic_0011_Non-Disclosure_Agreement"
+      "cuad_0013_PREMIERBIOMEDICALINC_05_14_2020-EX-10_2-INTELLECTU",
+      "cuad_0021_ZEBRATECHNOLOGIESCORP_04_16_2014-EX-10_1-INTELLECT",
+      "cuad_0025_CORIOINC_07_20_2000-EX-10_5-LICENSE_AND_HOSTING_AG",
+      "cuad_0029_BNCMORTGAGEINC_05_17_1999-EX-10_4-LICENSING_AND_WE"
     ]
   },
   {
     "query_id": "q003",
-    "query_text": "How is intellectual property ownership handled in professional services agreements?",
+    "query_text": "What are the confidentiality and non-disclosure obligations between parties?",
     "relevant_docs": [
-      "synthetic_0002_Service_Agreement",
-      "synthetic_0007_Service_Agreement",
-      "synthetic_0012_Service_Agreement"
+      "cuad_0001_WHITESMOKE_INC_11_08_2011-EX-10_26-PROMOTION_AND_D",
+      "cuad_0004_KIROMICBIOPHARMA_INC_05_11_2020-EX-10_23-CONSULTIN",
+      "cuad_0023_GLOBALTECHNOLOGIESLTD_06_08_2020-EX-10_16-CONSULTI",
+      "cuad_0067_TELEGLOBEINTERNATIONALHOLDINGSLTD_03_29_2004-EX-10"
     ]
   },
   {
     "query_id": "q004",
-    "query_text": "What are the non-compete restrictions for employees after termination?",
+    "query_text": "What are the joint venture terms and profit sharing arrangements?",
     "relevant_docs": [
-      "synthetic_0003_Employment_Agreement",
-      "synthetic_0008_Employment_Agreement",
-      "synthetic_0013_Employment_Agreement"
+      "cuad_0005_VEONEER_INC_02_21_2020-EX-10_11-JOINT_VENTURE_AGRE",
+      "cuad_0020_BORROWMONEYCOM_INC_06_11_2020-EX-10_1-JOINT_VENTUR",
+      "cuad_0054_VIRGINGALACTICHOLDINGS_INC_04_08_2020-EX-99_1-JOIN"
     ]
   },
   {
     "query_id": "q005",
-    "query_text": "What are the tenant obligations for insurance in a commercial lease?",
+    "query_text": "What are the outsourcing agreement terms and service level obligations?",
     "relevant_docs": [
-      "synthetic_0004_Lease_Agreement",
-      "synthetic_0009_Lease_Agreement",
-      "synthetic_0014_Lease_Agreement"
+      "cuad_0032_NICELTD_06_26_2003-EX-4_5-OUTSOURCING_AGREEMENT",
+      "cuad_0051_DRAGONSYSTEMSINC_01_08_1999-EX-10_17-OUTSOURCING_A",
+      "cuad_0056_ASPIRITYHOLDINGSLLC_05_07_2012-EX-10_6-OUTSOURCING",
+      "cuad_0057_OASYSMOBILE_INC_07_05_2001-EX-10_17-OUTSOURCING_AG"
     ]
   },
   {
     "query_id": "q006",
-    "query_text": "What restrictions does a licensee have on sublicensing or reselling software?",
+    "query_text": "What are the supply agreement terms including delivery and quality requirements?",
     "relevant_docs": [
-      "synthetic_0000_Software_License_Agreement",
-      "synthetic_0005_Software_License_Agreement"
+      "cuad_0044_VERICELCORP_08_06_2019-EX-10_10-SUPPLY_AGREEMENT",
+      "cuad_0058_MEDIWOUNDLTD_01_15_2014-EX-10_6-SUPPLY_AGREEMENT",
+      "cuad_0060_Antares_Pharma__Inc__-_Manufacturing_Agreement",
+      "cuad_0064_ELECTRAMECCANICA_VEHICLES_CORP__-_Manufacturing_Ag"
     ]
   },
   {
     "query_id": "q007",
-    "query_text": "Under what conditions can confidential information be disclosed without consent?",
+    "query_text": "What are the strategic alliance agreement terms and partnership obligations?",
     "relevant_docs": [
-      "synthetic_0001_Non-Disclosure_Agreement",
-      "synthetic_0006_Non-Disclosure_Agreement"
+      "cuad_0007_FTENETWORKS_INC_02_18_2016-EX-99_4-STRATEGIC_ALLIA",
+      "cuad_0014_SIBANNAC_INC_12_04_2017-EX-2_1-Strategic_Alliance_",
+      "cuad_0015_INTRICONCORP_03_10_2009-EX-10_22-Strategic_Allianc",
+      "cuad_0030_ENERGOUSCORP_03_16_2017-EX-10_24-STRATEGIC_ALLIANC",
+      "cuad_0050_ORBSATCORP_08_17_2007-EX-7_3-STRATEGIC_ALLIANCE_AG"
     ]
   },
   {
     "query_id": "q008",
-    "query_text": "What are the payment terms and late fees in service agreements?",
+    "query_text": "What are the reseller and distributor agreement terms and distribution rights?",
     "relevant_docs": [
-      "synthetic_0002_Service_Agreement",
-      "synthetic_0007_Service_Agreement"
+      "cuad_0028_LOYALTYPOINTINC_11_16_2004-EX-10_2-RESELLER_AGREEM",
+      "cuad_0046_WORLDWIDESTRATEGIESINC_11_02_2005-EX-10-RESELLER_A",
+      "cuad_0071_NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99_1-DISTR",
+      "cuad_0000_LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR_AGREEMEN"
     ]
   },
   {
     "query_id": "q009",
-    "query_text": "What employee benefits and compensation structure is defined in employment contracts?",
+    "query_text": "What are the consulting agreement payment terms and deliverables?",
     "relevant_docs": [
-      "synthetic_0003_Employment_Agreement",
-      "synthetic_0008_Employment_Agreement"
+      "cuad_0004_KIROMICBIOPHARMA_INC_05_11_2020-EX-10_23-CONSULTIN",
+      "cuad_0023_GLOBALTECHNOLOGIESLTD_06_08_2020-EX-10_16-CONSULTI",
+      "cuad_0031_CytodynInc_20200109_10-Q_EX-10_5_11941634_EX-10_5_"
     ]
   },
   {
     "query_id": "q010",
-    "query_text": "What are the conditions for security deposit return in lease agreements?",
+    "query_text": "What are the licensing agreement royalty terms and usage restrictions?",
     "relevant_docs": [
-      "synthetic_0004_Lease_Agreement",
-      "synthetic_0009_Lease_Agreement"
+      "cuad_0025_CORIOINC_07_20_2000-EX-10_5-LICENSE_AND_HOSTING_AG",
+      "cuad_0029_BNCMORTGAGEINC_05_17_1999-EX-10_4-LICENSING_AND_WE",
+      "cuad_0036_GALACTICOMMTECHNOLOGIESINC_11_07_1997-EX-10_46-WEB"
     ]
   },
   {
     "query_id": "q011",
-    "query_text": "How is limitation of liability defined for software and service providers?",
+    "query_text": "What are the indemnification and liability limitation clauses?",
     "relevant_docs": [
-      "synthetic_0000_Software_License_Agreement",
-      "synthetic_0002_Service_Agreement",
-      "synthetic_0007_Service_Agreement"
+      "cuad_0019_OPERALTD_04_30_2020-EX-4_14-SERVICE_AGREEMENT",
+      "cuad_0045_WPPPLC_04_30_2020-EX-4_28-SERVICE_AGREEMENT",
+      "cuad_0038_CUROGROUPHOLDINGSCORP_05_04_2020-EX-10_3-SERVICING",
+      "cuad_0032_NICELTD_06_26_2003-EX-4_5-OUTSOURCING_AGREEMENT"
     ]
   },
   {
     "query_id": "q012",
-    "query_text": "What governing law and jurisdiction applies to technology contracts?",
+    "query_text": "What are the governing law and dispute resolution provisions?",
     "relevant_docs": [
-      "synthetic_0000_Software_License_Agreement",
-      "synthetic_0001_Non-Disclosure_Agreement"
+      "cuad_0001_WHITESMOKE_INC_11_08_2011-EX-10_26-PROMOTION_AND_D",
+      "cuad_0005_VEONEER_INC_02_21_2020-EX-10_11-JOINT_VENTURE_AGRE",
+      "cuad_0067_TELEGLOBEINTERNATIONALHOLDINGSLTD_03_29_2004-EX-10",
+      "cuad_0069_BIOCEPTINC_08_19_2013-EX-10-COLLABORATION_AGREEMEN"
     ]
   },
   {
     "query_id": "q013",
-    "query_text": "What are the indemnification obligations in professional services contracts?",
+    "query_text": "What are the endorsement agreement terms and compensation structure?",
     "relevant_docs": [
-      "synthetic_0002_Service_Agreement",
-      "synthetic_0007_Service_Agreement",
-      "synthetic_0012_Service_Agreement"
+      "cuad_0003_ADAMSGOLFINC_03_21_2005-EX-10_17-ENDORSEMENT_AGREE"
     ]
   },
   {
     "query_id": "q014",
-    "query_text": "What inventions and discoveries must employees assign to their employer?",
+    "query_text": "What are the manufacturing agreement quality control and inspection rights?",
     "relevant_docs": [
-      "synthetic_0003_Employment_Agreement",
-      "synthetic_0008_Employment_Agreement",
-      "synthetic_0013_Employment_Agreement"
+      "cuad_0060_Antares_Pharma__Inc__-_Manufacturing_Agreement",
+      "cuad_0064_ELECTRAMECCANICA_VEHICLES_CORP__-_Manufacturing_Ag",
+      "cuad_0037_Zounds_Hearing__Inc__-_MANUFACTURING_DESIGN_MARKET"
     ]
   },
   {
     "query_id": "q015",
-    "query_text": "What constitutes default by a tenant and what are landlord remedies?",
+    "query_text": "What are the collaboration agreement research and development obligations?",
     "relevant_docs": [
-      "synthetic_0004_Lease_Agreement",
-      "synthetic_0009_Lease_Agreement",
-      "synthetic_0014_Lease_Agreement"
+      "cuad_0026_SENMIAOTECHNOLOGYLTD_02_19_2019-EX-10_5-Collaborat",
+      "cuad_0069_BIOCEPTINC_08_19_2013-EX-10-COLLABORATION_AGREEMEN",
+      "cuad_0027_HealthcareIntegratedTechnologiesInc_20190812_8-K_E"
     ]
   },
   {
     "query_id": "q016",
-    "query_text": "How long does the confidentiality obligation last after agreement termination?",
+    "query_text": "What are the franchise agreement terms and franchisee obligations?",
     "relevant_docs": [
-      "synthetic_0001_Non-Disclosure_Agreement",
-      "synthetic_0006_Non-Disclosure_Agreement",
-      "synthetic_0011_Non-Disclosure_Agreement"
+      "cuad_0068_INTERNATIONALFASTFOODCORP_04_04_1997-EX-99-FRANCHI"
     ]
   },
   {
     "query_id": "q017",
-    "query_text": "What warranties does a service provider give about the quality of work?",
+    "query_text": "What payment terms and invoicing requirements are defined in service contracts?",
     "relevant_docs": [
-      "synthetic_0002_Service_Agreement",
-      "synthetic_0007_Service_Agreement"
+      "cuad_0019_OPERALTD_04_30_2020-EX-4_14-SERVICE_AGREEMENT",
+      "cuad_0045_WPPPLC_04_30_2020-EX-4_28-SERVICE_AGREEMENT",
+      "cuad_0038_CUROGROUPHOLDINGSCORP_05_04_2020-EX-10_3-SERVICING",
+      "cuad_0063_ABILITYINC_06_15_2020-EX-4_25-SERVICES_AGREEMENT"
     ]
   },
   {
     "query_id": "q018",
-    "query_text": "What are the at-will employment provisions and notice requirements for termination?",
+    "query_text": "What are the maintenance agreement terms and support obligations?",
     "relevant_docs": [
-      "synthetic_0003_Employment_Agreement",
-      "synthetic_0008_Employment_Agreement"
+      "cuad_0017_ON2TECHNOLOGIES_INC_11_17_2006-EX-10_3-SUPPORT_AND",
+      "cuad_0048_AzulSa_20170303_F-1A_EX-10_3_9943903_EX-10_3_Maint",
+      "cuad_0072_AzulSa_20170303_F-1A_EX-10_3_9943903_EX-10_3_Maint"
     ]
   },
   {
     "query_id": "q019",
-    "query_text": "What are the permitted uses of leased commercial premises?",
+    "query_text": "What are the agency agreement commission and exclusivity terms?",
     "relevant_docs": [
-      "synthetic_0004_Lease_Agreement",
-      "synthetic_0009_Lease_Agreement"
+      "cuad_0016_BONTONSTORESINC_04_20_2018-EX-99_3-AGENCY_AGREEMEN",
+      "cuad_0041_Principal_Life_Insurance_Company_-_Broker_Dealer_M"
     ]
   },
   {
     "query_id": "q020",
-    "query_text": "How are disputes resolved in professional and commercial contracts?",
+    "query_text": "What are the joint filing and cooperation agreement obligations?",
     "relevant_docs": [
-      "synthetic_0002_Service_Agreement",
-      "synthetic_0007_Service_Agreement",
-      "synthetic_0004_Lease_Agreement"
+      "cuad_0002_NELNETINC_04_08_2020-EX-1-JOINT_FILING_AGREEMENT",
+      "cuad_0061_RareElementResourcesLtd_20171019_SC_13D_EX-99_4_10"
     ]
   },
   {
     "query_id": "q021",
-    "query_text": "What happens to software licenses when a contract is terminated?",
+    "query_text": "What are the remarketing and promotion agreement terms?",
     "relevant_docs": [
-      "synthetic_0000_Software_License_Agreement",
-      "synthetic_0005_Software_License_Agreement",
-      "synthetic_0010_Software_License_Agreement"
+      "cuad_0006_MetLife__Inc__-_Remarketing_Agreement",
+      "cuad_0001_WHITESMOKE_INC_11_08_2011-EX-10_26-PROMOTION_AND_D"
     ]
   },
   {
     "query_id": "q022",
-    "query_text": "What remedies are available for breach of confidentiality agreement?",
+    "query_text": "What warranty and representation clauses are included in technology agreements?",
     "relevant_docs": [
-      "synthetic_0001_Non-Disclosure_Agreement",
-      "synthetic_0006_Non-Disclosure_Agreement"
+      "cuad_0017_ON2TECHNOLOGIES_INC_11_17_2006-EX-10_3-SUPPORT_AND",
+      "cuad_0021_ZEBRATECHNOLOGIESCORP_04_16_2014-EX-10_1-INTELLECT",
+      "cuad_0036_GALACTICOMMTECHNOLOGIESINC_11_07_1997-EX-10_46-WEB",
+      "cuad_0070_PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-1"
     ]
   },
   {
     "query_id": "q023",
-    "query_text": "What are the maintenance and repair responsibilities in commercial leases?",
+    "query_text": "What are the servicing agreement default and remedy provisions?",
     "relevant_docs": [
-      "synthetic_0004_Lease_Agreement",
-      "synthetic_0009_Lease_Agreement",
-      "synthetic_0014_Lease_Agreement"
+      "cuad_0038_CUROGROUPHOLDINGSCORP_05_04_2020-EX-10_3-SERVICING",
+      "cuad_0043_VerizonAbsLlc_20200123_8-K_EX-10_4_11952335_EX-10_"
     ]
   },
   {
     "query_id": "q024",
-    "query_text": "How is proprietary information and trade secrets protection defined in employment?",
+    "query_text": "What are the sponsor agreement fees and obligations?",
     "relevant_docs": [
-      "synthetic_0003_Employment_Agreement",
-      "synthetic_0008_Employment_Agreement",
-      "synthetic_0001_Non-Disclosure_Agreement"
+      "cuad_0008_DOMINIADVISORTRUST_02_18_2005-EX-99__H__2_-SPONSOR",
+      "cuad_0047_FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-"
     ]
   },
   {
     "query_id": "q025",
-    "query_text": "What are the grant of license terms including exclusivity and transferability?",
+    "query_text": "What are the hospitality and accommodation agreement terms and conditions?",
     "relevant_docs": [
-      "synthetic_0000_Software_License_Agreement",
-      "synthetic_0005_Software_License_Agreement",
-      "synthetic_0010_Software_License_Agreement"
+      "cuad_0009_PfHospitalityGroupInc_20150923_10-12G_EX-10_1_9266",
+      "cuad_0018_Freecook_20180605_S-1_EX-10_3_11233807_EX-10_3_Hos",
+      "cuad_0024_PfHospitalityGroupInc_20150923_10-12G_EX-10_1_9266"
     ]
   }
 ]
