@@ -119,10 +119,14 @@ def clean_text(text: str) -> str:
 
 # ── Data Loading ───────────────────────────────────────────────────────────────
 
-def load_cuad(max_docs: int) -> list[dict]:
+def load_cuad(max_docs):
     """
     Load CUAD contracts from Hugging Face datasets.
     Falls back to raw txt files in data/raw/ if download fails.
+
+    IMPORTANT FIX: CUAD-QA repeats the full contract text for every question
+    (up to 41 questions per contract). We take context ONCE per unique title
+    to avoid 41x duplication that caused 1.8M chunks instead of ~18K.
 
     Returns:
         List of {"doc_id": str, "text": str} dicts.
@@ -134,24 +138,24 @@ def load_cuad(max_docs: int) -> list[dict]:
         from datasets import load_dataset
         dataset = load_dataset("theatticusproject/cuad-qa", split="train", trust_remote_code=True)
 
+        # CRITICAL FIX: Take context ONCE per unique contract title
+        # The QA dataset repeats the same contract text for every question
         seen_titles = {}
         for row in dataset:
             title = row.get("title", "unknown")
             if title not in seen_titles:
-                seen_titles[title] = []
-            seen_titles[title].append(row.get("context", ""))
+                seen_titles[title] = row.get("context", "")
 
-        for i, (title, contexts) in enumerate(seen_titles.items()):
+        for i, (title, text) in enumerate(seen_titles.items()):
             if len(documents) >= max_docs:
                 break
-            full_text = "\n\n".join(contexts)
-            if len(full_text) < MIN_CHUNK_LEN:
+            if len(text) < MIN_CHUNK_LEN:
                 continue
             safe_title = re.sub(r"[^a-zA-Z0-9_-]", "_", title)[:50]
-            doc_id = f"cuad_{i:04d}_{safe_title}"
-            documents.append({"doc_id": doc_id, "text": full_text})
+            doc_id = "cuad_{:04d}_{}".format(i, safe_title)
+            documents.append({"doc_id": doc_id, "text": text})
 
-        print(f"[Ingest] ✅ Loaded {len(documents)} contracts from CUAD")
+        print("[Ingest] Loaded {} contracts from CUAD".format(len(documents)))
 
     except Exception as e:
         print(f"[Ingest] ⚠️  CUAD download failed: {e}")
